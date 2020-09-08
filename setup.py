@@ -19,6 +19,7 @@ tests_require = []
 
 install_requires = [
     'oarepo-micro-api>=1.0.2',
+    # 'invenio-rdm-records',
     'invenio-s3'
 ]
 
@@ -57,7 +58,10 @@ setup(
     entry_points={
         'console_scripts': [
             's3-demo = invenio_app.cli:cli',
-        ]
+        ],
+        'invenio_config.module': [
+            's3_demo = s3_demo.config',
+        ],
     },
     classifiers=[
         'Environment :: Web Environment',
