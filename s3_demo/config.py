@@ -27,7 +27,7 @@ RECORDS_REST_ENDPOINTS = {
         search_class=RecordsSearch,
         indexer_class=RecordIndexer,
         record_class=Record,
-        search_index='records',
+        search_index='records-record-v1.0.0',
         search_type=None,
         record_serializers={
             'application/json': ('invenio_records_rest.serializers'
