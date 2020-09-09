@@ -10,6 +10,7 @@
 This file is imported by ``s3_demo.__init__``,
 and parsed by ``setup.py``.
 """
+import os
 
 from invenio_records_rest.utils import allow_all
 from invenio_indexer.api import RecordIndexer
@@ -54,3 +55,14 @@ RECORDS_REST_ENDPOINTS = {
 }
 """REST API for s3-demo."""
 
+ES_USER = os.getenv('OAREPO_ES_USER', None)
+ES_PASSWORD = os.getenv('OAREPO_ES_PASSWORD', None)
+ES_PARAMS = {}
+
+if ES_USER and ES_PASSWORD:
+    ES_PARAMS = dict(http_auth=(ES_USER, ES_PASSWORD))
+
+SEARCH_ELASTIC_HOSTS = [dict(host=h, **ES_PARAMS) for h in
+                        os.getenv('OAREPO_SEARCH_ELASTIC_HOSTS', 'localhost').split(',')]
+
+APP_ALLOWED_HOSTS = [h for h in os.getenv('OAREPO_APP_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')]
