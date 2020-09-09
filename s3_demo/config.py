@@ -39,7 +39,7 @@ RECORDS_REST_ENDPOINTS = {
         },
         list_route='/records/',
         item_route='/records/<pid(recid,'
-                   'record_class="cesnet_demo.records.api.Record")'
+                   'record_class="invnenio_records.api.Record")'
                    ':pid_value>',
         default_media_type='application/json',
         max_result_window=10000,
