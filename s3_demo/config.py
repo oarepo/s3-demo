@@ -14,7 +14,7 @@ import os
 
 from invenio_records_rest.utils import allow_all
 from invenio_indexer.api import RecordIndexer
-
+from invenio_records.api import Record
 from invenio_search import RecordsSearch
 
 
@@ -26,6 +26,7 @@ RECORDS_REST_ENDPOINTS = {
         default_endpoint_prefix=True,
         search_class=RecordsSearch,
         indexer_class=RecordIndexer,
+        record_class=Record,
         search_index='records',
         search_type=None,
         record_serializers={
