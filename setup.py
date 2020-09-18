@@ -20,7 +20,10 @@ tests_require = []
 install_requires = [
     'oarepo-micro-api>=1.0.2',
     # 'invenio-rdm-records',
-    'invenio-s3'
+    'oarepo-dc',
+    'invenio-s3',
+    'oarepo-invenio-model',
+    'oarepo-mapping-includes'
 ]
 
 setup_requires = []
@@ -59,8 +62,20 @@ setup(
         'console_scripts': [
             's3-demo = invenio_app.cli:cli',
         ],
+        'invenio_base.apps': [
+            's3_demo = s3_demo.records:OARepoS3Demo',
+        ],
+        'invenio_base.api_apps': [
+            's3_demo = s3_demo.records:OARepoS3Demo',
+        ],
         'invenio_config.module': [
             's3_demo = s3_demo.config',
+        ],
+        'invenio_jsonschemas.schemas': [
+            's3_demo = s3_demo.records.jsonschemas'
+        ],
+        'invenio_search.mappings': [
+            'records = s3_demo.records.mappings'
         ],
     },
     classifiers=[
