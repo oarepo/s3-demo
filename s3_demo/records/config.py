@@ -22,7 +22,6 @@ def _(x):
     """Identity function for string extraction."""
     return x
 
-
 RECORDS_REST_ENDPOINTS = {
     'recid': dict(
         pid_type='recid',
@@ -106,6 +105,6 @@ RECORDS_FILES_REST_ENDPOINTS = {
 }
 """Records files integration."""
 
-FILES_REST_PERMISSION_FACTORY = \
-    'cesnet_demo.records.permissions:files_permission_factory'
+# FILES_REST_PERMISSION_FACTORY = \
+#     'cesnet_demo.records.permissions:files_permission_factory'
 """Files-REST permissions factory."""

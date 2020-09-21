@@ -21,10 +21,14 @@ services:
       - "INVENIO_CELERY_BROKER_URL=amqp://guest:guest@mq:5672/"
       - "INVENIO_CELERY_RESULT_BACKEND=redis://cache:6379/2"
       - "INVENIO_SEARCH_ELASTIC_HOSTS=['es:9200']"
+      - "INVENIO_SEARCH_INDEX_PREFIX=oarepo-demo-s3"
       - "INVENIO_SECRET_KEY=CHANGE_ME"
       - "INVENIO_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://s3-demo:s3-demo@db/s3-demo"
       - "INVENIO_WSGI_PROXIES=2"
+      - "OAREPO_APP_ALLOWED_HOSTS=web-api:5000,localhost"
+      - "INVENIO_FILES_REST_PERMISSION_FACTORY=invenio_records_rest.utils.allow_all"
       - "INVENIO_RATELIMIT_STORAGE_URL=redis://cache:6379/3"
+      - "INVENIO_USER=invenio"
   lb:
     build: ./docker/haproxy/
     image: s3-demo-lb

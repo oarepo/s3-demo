@@ -24,3 +24,5 @@ SEARCH_ELASTIC_HOSTS = [dict(host=h, **ES_PARAMS) for h in
                         os.getenv('OAREPO_SEARCH_ELASTIC_HOSTS', 'localhost').split(',')]
 
 APP_ALLOWED_HOSTS = [h for h in os.getenv('OAREPO_APP_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')]
+
+FILES_REST_STORAGE_FACTORY = 'invenio_s3.s3fs_storage_factory'
